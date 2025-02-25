@@ -6,7 +6,7 @@
 /*   By: inazaria <inazaria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 10:52:38 by inazaria          #+#    #+#             */
-/*   Updated: 2025/02/25 11:09:27 by inazaria         ###   ########.fr       */
+/*   Updated: 2025/02/25 16:27:55 by inazaria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	main(int argc, char *argv[])
 		std::string arg = argv[i];
 		for (size_t j = 0; j < arg.length(); j++)
 			std::cout << static_cast<char>(std::toupper(arg[j]));
+		std::cout << " ";
 	}
 	std::cout << std::endl;
 

@@ -6,7 +6,7 @@
 /*   By: inazaria <inazaria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 12:07:50 by inazaria          #+#    #+#             */
-/*   Updated: 2025/02/25 14:33:43 by inazaria         ###   ########.fr       */
+/*   Updated: 2025/02/25 16:30:08 by inazaria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	repl(void)
 		std::cout << "Please input a command : " ;
 		std::getline(std::cin, string);
 		if (string.empty())
-			break;
+			continue ;
 		eval(string, phoneBook);
 	}
 }

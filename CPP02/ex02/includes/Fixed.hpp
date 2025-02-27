@@ -6,9 +6,11 @@
 /*   By: inazaria <inazaria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 15:51:05 by inazaria          #+#    #+#             */
-/*   Updated: 2025/02/27 20:12:14 by inazaria         ###   ########.fr       */
+/*   Updated: 2025/02/27 20:45:34 by inazaria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#pragma once
 
 #include <iostream>
 #include <cmath>

@@ -14,7 +14,7 @@
 #include "ClapTrap.hpp"
 
 FragTrap::FragTrap(str name): ClapTrap(name) {
-	std::cout << "FragTrap String Constructor called" << std::endl;
+	std::cout << "String FragTrap Constructor called" << std::endl;
 	this->_hitpoints = 100;
 	this->_energypoints = 100;
 	this->_attackpoints = 30;
@@ -23,9 +23,10 @@ FragTrap::FragTrap(str name): ClapTrap(name) {
 FragTrap&	FragTrap::operator=(const FragTrap& other) {
 	if (this != &other) {
 		ClapTrap::operator=(other);
-		this->_hitpoints = 100;
-		this->_energypoints = 100;
-		this->_attackpoints = 30;
+		this->_name = other._name;
+		this->_hitpoints = other._hitpoints;
+		this->_energypoints = other._energypoints;
+		this->_attackpoints = other._attackpoints;
 	}
 	return (*this);
 }

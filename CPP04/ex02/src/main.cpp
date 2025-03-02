@@ -6,7 +6,7 @@
 /*   By: inazaria <inazaria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 18:37:19 by inazaria          #+#    #+#             */
-/*   Updated: 2025/03/01 01:14:53 by inazaria         ###   ########.fr       */
+/*   Updated: 2025/03/02 18:30:59 by inazaria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "Cat.hpp"
 #include "Dog.hpp"
 #include "Brain.hpp"
+#include <cstdio>
 
 void	brainCopy(Brain *b1, Brain *b2)
 {
@@ -33,23 +34,48 @@ void	printIdeas(str ideas[100]) {
 	std::cout << "]" << std::endl;
 }
 
+void	testArray(void) {
+	Animal *arr[100];
+
+	int i = 0;
+	while (i < 50)
+		arr[i++] = new Dog();
+	while (i < 100)
+		arr[i++] = new Cat();
+
+	arr[12]->makeSound();
+	arr[78]->makeSound();
+
+	i--;
+	while (i >= 0) {
+		delete arr[i];
+		i--;
+	}
+}
+
 int main(void)
 {
-	Cat		c1;
-	Cat		c2;
-	Brain	b;
+	Cat *c1 = new Cat();
 
-	b.ideas[0] = "idea0";
-	b.ideas[1] = "idea1";
+	c1->getBrain()->ideas[0] = "Idea 0";
+	printIdeas(c1->getBrain()->ideas);
+	
+	Cat c2 = *c1;
+	printIdeas(c2.getBrain()->ideas);
 
-	brainCopy(c1.getBrain(), &b);
-	Brain c1b = *c1.getBrain();
-	printIdeas(c1b.ideas);
+	c1->getBrain()->ideas[0] = "New Idea !";
+	printIdeas(c1->getBrain()->ideas);
 
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	delete j;//should not create a leak
-	delete i;
+	delete c1;
+	printIdeas(c2.getBrain()->ideas);
+
+	Dog basic;
+	{
+		Dog tmp = basic;
+	}
+
+	std::cout << "\n\n" << std::endl;
+	testArray();
 
 	return (0);
 }

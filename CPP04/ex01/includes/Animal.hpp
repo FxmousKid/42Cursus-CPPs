@@ -6,7 +6,7 @@
 /*   By: inazaria <inazaria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 17:40:15 by inazaria          #+#    #+#             */
-/*   Updated: 2025/02/28 20:14:07 by inazaria         ###   ########.fr       */
+/*   Updated: 2025/03/02 18:34:02 by inazaria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ typedef std::string str;
 
 class Animal {
 public:
-	Animal();
-	Animal(const Animal &src);
-	Animal &operator=(const Animal &src);
-	virtual ~Animal();
+	Animal(); // default constructor
+	Animal(const Animal &src); // copy constructor
+	Animal &operator=(const Animal &src); // copy assingment operator
+	virtual ~Animal(); // destructor
 
 	Animal(str type);
 	virtual void makeSound() const;

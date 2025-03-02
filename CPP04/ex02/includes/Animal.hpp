@@ -6,7 +6,7 @@
 /*   By: inazaria <inazaria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 17:40:15 by inazaria          #+#    #+#             */
-/*   Updated: 2025/03/01 01:29:09 by inazaria         ###   ########.fr       */
+/*   Updated: 2025/03/02 18:30:24 by inazaria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public:
 	virtual ~Animal(); // destructor
 
 	Animal(str type);
-	virtual void makeSound() const;
+	virtual void makeSound() const = 0;
 
 	str getType() const;
 

@@ -6,7 +6,7 @@
 /*   By: inazaria <inazaria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 22:21:54 by inazaria          #+#    #+#             */
-/*   Updated: 2025/02/28 23:25:22 by inazaria         ###   ########.fr       */
+/*   Updated: 2025/03/02 18:30:58 by inazaria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ Brain::Brain(const Brain& other) {
 }
 
 Brain&	Brain::operator=(const Brain& other) {
+	std::cout << "[A] Brain operator= called" << std::endl;
 	if (this != &other) {
 		for (size_t i = 0; i < 100; i++)
 			this->ideas[i] = other.ideas[i];

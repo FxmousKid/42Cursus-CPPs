@@ -6,7 +6,7 @@
 /*   By: inazaria <inazaria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 20:47:11 by inazaria          #+#    #+#             */
-/*   Updated: 2025/03/22 21:57:34 by inazaria         ###   ########.fr       */
+/*   Updated: 2025/03/22 22:03:51 by inazaria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ public:
 	Intern(Intern const &obj);
 	Intern &operator=(Intern const &obj);
 	~Intern();
-
-	AForm*	makeForm(const str &name, const str &target);
 
 	class FormNotFoundException: public std::exception {
 		virtual const char* what() const throw();

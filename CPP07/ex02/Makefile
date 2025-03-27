@@ -6,7 +6,7 @@
 #    By: inazaria <inazaria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/25 10:50:11 by inazaria          #+#    #+#              #
-#    Updated: 2025/03/27 21:55:13 by inazaria         ###   ########.fr        #
+#    Updated: 2025/03/27 22:16:18 by inazaria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ DEP_FILES = $(patsubst $(SRC_DIR)%.cpp, $(BUILD_DIR)%.d, $(SRC_FILES))
 
 #<><><><><><><> Variables <><><><><><><><><><><><><><><><><>
 
-NAME := ex00
+NAME := ex02
 CXX := c++
 CXXFLAGS := -gdwarf-4 -Wall -Wextra -Werror -I $(INC_DIR) -MMD -MP -std=c++98
 LFLAGS := 

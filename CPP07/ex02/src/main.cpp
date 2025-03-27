@@ -6,19 +6,14 @@
 /*   By: inazaria <inazaria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 20:41:43 by inazaria          #+#    #+#             */
-/*   Updated: 2025/03/27 21:54:49 by inazaria         ###   ########.fr       */
+/*   Updated: 2025/03/27 22:17:55 by inazaria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <cstdlib>
-
-// int main(void)
-// {
-
-// 	return (EXIT_SUCCESS);
-// }
 #include <iostream>
 #include <Array.hpp>
+#include <ctime>
+#include <cstdlib>
 
 #define MAX_VAL 750
 int main(int, char**)
@@ -67,6 +62,12 @@ int main(int, char**)
     {
         numbers[i] = rand();
     }
+
+	std::cout << "Numbers:" << std::endl;
+	for (int i = 0; i < 5; i++)
+		std::cout << numbers[i] << std::endl;
+
+
     delete [] mirror;//
     return 0;
 }

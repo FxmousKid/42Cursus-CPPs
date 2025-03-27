@@ -6,7 +6,7 @@
 #    By: inazaria <inazaria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/25 10:50:11 by inazaria          #+#    #+#              #
-#    Updated: 2025/02/25 12:12:17 by inazaria         ###   ########.fr        #
+#    Updated: 2025/03/27 12:40:29 by inazaria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,11 +17,11 @@ BUILD_DIR 	= ./build/
 
 INC_DIR 	= ./includes/
 
-DEBUG_FILE_PATH = ./src/error_manager/debugging_functions
-DEBUG_BUILD_PATH = ./build/error_manager/debugging_functions
 
 # .c files for source code
-SRC_FILES_NAMES = megaphone.cpp
+SRC_FILES_NAMES = main.cpp
+SRC_FILES_NAMES += ScalarConverter.cpp
+
 
 # Full path to .c files
 SRC_FILES = $(addprefix $(SRC_DIR), $(SRC_FILES_NAMES))
@@ -35,9 +35,9 @@ DEP_FILES = $(patsubst $(SRC_DIR)%.cpp, $(BUILD_DIR)%.d, $(SRC_FILES))
 
 #<><><><><><><> Variables <><><><><><><><><><><><><><><><><>
 
-NAME := megaphon
-CC := c++
-CFLAGS := -gdwarf-4 -Wall -Wextra -Werror -I $(INC_DIR) -MMD -MP -std=c++98
+NAME := ex00
+CXX := c++
+CXXFLAGS := -gdwarf-4 -Wall -Wextra -Werror -I $(INC_DIR) -MMD -MP -std=c++98
 LFLAGS := 
 MKDIR := mkdir -p
 RM_RF := rm -rf
@@ -56,7 +56,7 @@ NC		:= \e[0m
 $(BUILD_DIR)%.o : $(SRC_DIR)%.cpp
 	@$(MKDIR) $(dir $@)
 	@$(ECHO) "$(BLUE)[CMP] Compiling $<...$(NC)"
-	@$(CC) -c $(CFLAGS) $< -o $@ 
+	@$(CXX) -c $(CXXFLAGS) $< -o $@ 
 
 
 # This is to add the .d files as dependencies for linking
@@ -69,7 +69,7 @@ re : clean all
 $(NAME) : $(OBJ_FILES)
 	@$(ECHO) "$(BROWN)[BLD] Building $(NAME) executable...$(NC)"
 	@$(MKDIR) ./build/error_manager/
-	@$(CC) $(CFLAGS) $^ -o $(NAME) $(LFLAGS)
+	@$(CXX) $(CXXFLAGS) $^ -o $(NAME) $(LFLAGS)
 	@$(ECHO) "$(GREEN)[BLD] Executable built successfully.$(NC)"
 
 all : $(NAME) 
@@ -77,9 +77,9 @@ all : $(NAME)
 debug : $(OBJ_FILES)
 	@$(ECHO) "$(RED)[DBG] Making in DEBUG MODE...$(NC)"
 	@$(MKDIR) ./build/error_manager/
-	@$(CC) $(CFLAGS) -D DEBUG -c $(DEBUG_FILE_PATH).c -o $(DEBUG_BUILD_PATH).o
+	@$(CXX) $(CXXFLAGS) -D DEBUG -c $(DEBUG_FILE_PATH).c -o $(DEBUG_BUILD_PATH).o
 	@$(ECHO) "$(BROWN)[BLD] Building executable...$(NC)"
-	@$(CC) $(CFLAGS) $(OBJ_FILES) $(DEBUG_BUILD_PATH).o -o $(NAME) $(LFLAGS)
+	@$(CXX) $(CXXFLAGS) $(OBJ_FILES) $(DEBUG_BUILD_PATH).o -o $(NAME) $(LFLAGS)
 	@$(ECHO) "$(GREEN)[BLD] Executable built successfully.$(NC)"
 
 force : $(OBJ_FILES)
@@ -89,8 +89,8 @@ force : $(OBJ_FILES)
 	@$(ECHO) "$(GREEN)[BLD] successfully built libft.$(NC)"	
 	@$(ECHO) "$(BROWN)[BLD] Building $(NAME) executable...$(NC)"
 	@$(MKDIR) ./build/error_manager/
-	@$(CC) $(CFLAGS) -c $(DEBUG_FILE_PATH).c -o $(DEBUG_BUILD_PATH).o
-	@$(CC) $(CFLAGS) $^ $(DEBUG_BUILD_PATH).o -o $(NAME) $(LFLAGS)
+	@$(CXX) $(CXXFLAGS) -c $(DEBUG_FILE_PATH).c -o $(DEBUG_BUILD_PATH).o
+	@$(CXX) $(CXXFLAGS) $^ $(DEBUG_BUILD_PATH).o -o $(NAME) $(LFLAGS)
 	@$(ECHO) "$(GREEN)[BLD] Executable built in FORCED mode successfully.$(NC)"
 
 
